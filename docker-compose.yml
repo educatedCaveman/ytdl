@@ -1,0 +1,19 @@
+---
+# this comment is a hack - as is this
+version: '3'
+services:
+  ytdl_material:
+    environment:
+      ALLOW_CONFIG_MUTATIONS: "true"
+    restart: always
+    volumes:
+      - /docker/docker-compose/ytdl/appdata:/app/appdata
+      - /docker/docker-compose/ytdl/audio:/app/audio
+      - /docker/docker-compose/ytdl/video:/app/video
+      - /docker/docker-compose/ytdl/subscriptions:/app/subscriptions
+    ports:
+      - "8998:17442"
+    image: tzahi12345/youtubedl-material:latest
+    deploy:
+      restart_policy:
+        condition: on-failure
