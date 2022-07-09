@@ -9,7 +9,7 @@ if [[ -n $pnums ]]; then
 fi
 
 # main variables
-MUSIC_TYPES=("*.mp3")
+MUSIC_TYPES=(".mp3")
 MUSIC_SRC="/docker/docker-compose/ytdl/audio"
 MUSIC_DEST="/mnt/mobius/Music/staging"
 TIMEOUT=5
