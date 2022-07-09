@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # for cron compatibility?
 HOME=/root
@@ -31,7 +31,7 @@ for file_type in "${MUSIC_TYPES[@]}"
 do 
     # for each file of the specified type
     # for file in $(find "${MUSIC_SRC}" -name "*${file_type}" -print)
-    for file in *$file_type
+    for file in $MUSIC_SRC/*$file_type
     do
         # echo "file name: '$file'"
         # wait for it to be done downloading, then copy it to the destination
