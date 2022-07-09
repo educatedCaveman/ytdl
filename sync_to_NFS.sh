@@ -12,18 +12,22 @@ fi
 MUSIC_TYPES=(".mp3")
 MUSIC_SRC="/docker/docker-compose/ytdl/audio"
 MUSIC_DEST="/mnt/mobius/Music/staging"
+# MUSIC_TYPES=(".sh")
+# MUSIC_SRC="/home/drake/github/docker-compose/ytdl"
+# MUSIC_DEST="/tmp"
 TIMEOUT=5
 
 # allow for there being multiple file types.
 for file_type in "${MUSIC_TYPES[@]}"
 do 
     # for each file of the specified type
-    for file in $(find "${MUSIC_SRC}"/*"${file_type}")
+    # for file in $(find "${MUSIC_SRC}" -name "*${file_type}" -print)
+    for file in *$file_type
     do
-
+        # echo "file name: '$file'"
         # wait for it to be done downloading, then copy it to the destination
         FILE_SIZE=$(stat -c "%s" "${file}")
-        sleep $TIMEOUT
+        # sleep $TIMEOUT
         NEW_SIZE=$(stat -c "%s" "${file}")
 
         while [[ "${NEW_SIZE}" -ne "${FILE_SIZE}" ]]
