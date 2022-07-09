@@ -3,7 +3,7 @@
 # will copy any of the specified file types to somewhere on mobius
 
 # check for another running instance, and exit if found
-pnums=$(pgrep $0)
+pnums=$(/usr/bin/pgrep $0)
 if [[ -n $pnums ]]; then
     exit 0
 fi
@@ -26,16 +26,16 @@ do
     do
         # echo "file name: '$file'"
         # wait for it to be done downloading, then copy it to the destination
-        FILE_SIZE=$(stat -c "%s" "${file}")
+        FILE_SIZE=$(/usr/bin/stat -c "%s" "${file}")
         # sleep $TIMEOUT
-        NEW_SIZE=$(stat -c "%s" "${file}")
+        NEW_SIZE=$(/usr/bin/stat -c "%s" "${file}")
 
         while [[ "${NEW_SIZE}" -ne "${FILE_SIZE}" ]]
         do
             # recheck, wait, then check again
-            FILE_SIZE=$(stat -c "%s" "${file}")
+            FILE_SIZE=$(/usr/bin/stat -c "%s" "${file}")
             sleep $TIMEOUT
-            NEW_SIZE=$(stat -c "%s" "${file}")
+            NEW_SIZE=$(/usr/bin/stat -c "%s" "${file}")
         done
 
         cp "${file}" "${MUSIC_DEST}"
