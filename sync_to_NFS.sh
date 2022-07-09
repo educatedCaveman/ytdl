@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # for cron compatibility?
-HOME=/root
-LOGNAME=root
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-LANG=en_US.UTF-8
-SHELL=/bin/sh
-PWD=/root
+# HOME=/root
+# LOGNAME=root
+# PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+# LANG=en_US.UTF-8
+# SHELL=/bin/sh
+# PWD=/root
 
 # script for cron to run
 # will copy any of the specified file types to somewhere on mobius
@@ -47,7 +47,7 @@ do
             NEW_SIZE=$(/usr/bin/stat -c "%s" "${file}")
         done
 
-        /usr/bin/cp "${file}" "${MUSIC_DEST}"
+        /usr/bin/mv "${file}" "${MUSIC_DEST}"
 
     done
 done
