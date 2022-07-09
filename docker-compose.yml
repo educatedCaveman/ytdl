@@ -9,7 +9,6 @@ services:
     volumes:
       - /docker/docker-compose/ytdl/appdata:/app/appdata
       - /docker/docker-compose/ytdl/audio:/app/audio
-      # - /mnt/mobius/Music/staging:/app/audio
       - /docker/docker-compose/ytdl/video:/app/video
       - /docker/docker-compose/ytdl/subscriptions:/app/subscriptions
     ports:
