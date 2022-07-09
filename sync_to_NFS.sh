@@ -27,18 +27,18 @@ do
         # echo "file name: '$file'"
         # wait for it to be done downloading, then copy it to the destination
         FILE_SIZE=$(/usr/bin/stat -c "%s" "${file}")
-        # sleep $TIMEOUT
+        /usr/bin/sleep $TIMEOUT
         NEW_SIZE=$(/usr/bin/stat -c "%s" "${file}")
 
         while [[ "${NEW_SIZE}" -ne "${FILE_SIZE}" ]]
         do
             # recheck, wait, then check again
             FILE_SIZE=$(/usr/bin/stat -c "%s" "${file}")
-            sleep $TIMEOUT
+            /usr/bin/sleep $TIMEOUT
             NEW_SIZE=$(/usr/bin/stat -c "%s" "${file}")
         done
 
-        cp "${file}" "${MUSIC_DEST}"
+        /usr/bin/cp "${file}" "${MUSIC_DEST}"
 
     done
 done
