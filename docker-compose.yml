@@ -13,7 +13,7 @@ services:
       - /docker/docker-compose/ytdl/subscriptions:/app/subscriptions
     ports:
       - "8998:17442"
-    image: tzahi12345/youtubedl-material:latest
+    image: tzahi12345/youtubedl-material@sha256:989af148df5f71ba41a79b4ce71bceb21417c2de7f309ed6d5c2042160dfaa22
     deploy:
       restart_policy:
         condition: on-failure
